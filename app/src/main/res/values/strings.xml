@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WordsFactory</string>
+    <string name="search_hint">Введите слово</string>
+    <string name="default_word_value">Word</string>
+    <string name="default_transcription_value">[word]</string>
+    <string name="part_of_speech_tittle">Part of speech:</string>
+    <string name="default_part_of_speech_value">Noun</string>
+</resources>
