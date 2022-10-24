@@ -2,14 +2,13 @@ package com.example.wordsfactory.project.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.liveData
 import com.example.wordsfactory.databinding.ActivitySearchBinding
-import com.example.wordsfactory.project.domain.models.WordInformationModel
 
 class SearchActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivitySearchBinding
     private lateinit var viewModelSearch: SearchActivityViewModel
 
@@ -24,13 +23,15 @@ class SearchActivity : AppCompatActivity() {
         )[SearchActivityViewModel::class.java].also { viewModelSearch = it }
 
         viewModelSearch.liveData.observe(this, Observer {
-            binding.word.text = it.wordName
-            binding.transcription.text = it.wordTranscription
-            binding.partOfSpeech.text = it.wordPartOfSpeech
+            binding.word.text = it[0].wordName
+            binding.transcription.text = it[0].phonetics[0].transcription
+            binding.partOfSpeech.text = it[0].meanings[0].partOfSpeech
         })
 
-//        binding.textViewLayout.setEndIconOnClickListener {
-//            Toast.makeText(this, "ALALA", Toast.LENGTH_LONG).show()
-//        }
+        binding.searchWordLayout.setEndIconOnClickListener {
+            val word: String = binding.searchWordEdit.text.toString()
+
+            viewModelSearch.searchWord(word = word)
+        }
     }
 }

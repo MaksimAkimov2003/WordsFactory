@@ -1,10 +1,11 @@
 package com.example.wordsfactory.project.domain.UseCases
 
-import com.example.wordsfactory.project.domain.models.WordInformationModel
+import com.example.wordsfactory.project.domain.repositories.WordsRepository
+import com.example.wordsfactory.project.network.WordInformation
 
-class SearchWordUseCase {
+class SearchWordUseCase(private val wordsRepository: WordsRepository) {
 
-    fun execute(word: String): WordInformationModel {
-        TODO("Прописать метод")
+    suspend fun execute(word: String): List<WordInformation> {
+        return wordsRepository.getWordFromNetwork(word = word)
     }
 }

@@ -20,6 +20,7 @@
         tools:ignore="RtlSymmetry">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchWordEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/round"
@@ -94,10 +95,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="-250dp"
-            android:text="@string/default_part_of_speech_value"
-            android:textColor="@color/black"
-            android:textSize="24sp">
+            android:layout_marginStart="-250dp">
+<!--            android:text="@string/default_part_of_speech_value"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="24sp"-->
+
         </TextView>
 
     </LinearLayout>
